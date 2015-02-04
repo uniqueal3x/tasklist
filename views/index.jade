@@ -1,0 +1,51 @@
+extends layout
+
+block content
+	h1 Task List
+	button(class='btn btn-success', data-toggle='modal', data-target='#addTaskModal') Add Task
+
+	//WRAPPER
+	#wrapper
+
+	//TASK LIST
+	#taskList
+		table(class="table table-striped")
+			thead
+				th Due Date
+				th Task
+				th Piority
+				th Delete
+			tbody
+	// /TASK LIST
+
+	//ADD TASK
+	div#addTaskModal(class='modal fade', role='dialog', aria-labelledby='addTaskModalLabel', aria-hidden='true', tabindex='-1')
+		div(class='modal-dialog')
+			div(class='modal-content')
+				div(class='modal-header')
+					button(type='button', class='close', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') &times;
+					h4#addTaskModalLabel(class='modal-title') New Task
+				div(class='modal-body')
+					form#addTask
+						fieldset
+							div(class='form-group')
+								label(for='inputTaskDuedate') Due Date: 
+								div(class='input-group')
+									input#inputTaskDuedate(type='text', placeholder='Due Date', class='form-control', readonly)
+									div(class='input-group-addon')
+										span(class='glyphicon glyphicon-calendar', aria-hidden='true')
+							div(class='form-group')
+								label(for='selectTaskTask') Task: 
+								input#inputTaskTask(type='text', placeholder='Task', class='form-control')
+							div(class='form-group')
+								label(for='selectTaskPriority') Priority: 
+								select#selectTaskPriority(class='form-control')
+									option(selected='selected') High
+									option Low
+				div(class='modal-footer')
+					button(type='button', class='btn btn-default', data-dismiss='modal') Close
+					button#btnAddTask(class='btn btn-success') Add Task 
+	// /ADD TASK
+
+	// /WRAPPER
